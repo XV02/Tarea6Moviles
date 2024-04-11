@@ -36,7 +36,9 @@ class _LoginPageState extends State<LoginPage> {
             MaterialButton(
               child: Text("Iniciar como anonimo"),
               color: Colors.grey,
-              onPressed: () {},
+              onPressed: () {
+                BlocProvider.of<AuthBloc>(context).add(AnonymousAuthEvent());
+              },
             ),
             Text(
               "Utiliza un red social",

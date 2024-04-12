@@ -37,11 +37,7 @@ class MyApp extends StatelessWidget {
       home: BlocConsumer<AuthBloc, AuthState>(
         listener: (context, state) {
           if (state is AuthErrorState) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text("Favor de autenticarse"),
-              ),
-            );
+            print("Error al autenticar");
           }
         },
         builder: (context, state) {

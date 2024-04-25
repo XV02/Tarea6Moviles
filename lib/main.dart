@@ -52,7 +52,7 @@ class MyApp extends StatelessWidget {
         },
         builder: (context, state) {
           if (state is AuthSuccessState) {
-            return HomePage();
+            return const HomePage();
           } else if (state is UnAuthState ||
               state is AuthErrorState ||
               state is SignOutSuccessState) {

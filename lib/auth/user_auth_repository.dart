@@ -38,5 +38,7 @@ class UserAuthRepository {
 
     // firebase sign in con credenciales de Google
     await _auth.signInWithCredential(credential);
+
+    print(FirebaseAuth.instance.currentUser!.uid);
   }
 }

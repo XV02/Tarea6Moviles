@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 
 class NotesProvider with ChangeNotifier {
   bool isLoading = false;
+  bool editing = false;
   Future<void> getAllNotes() async {}
   Future<bool> createNewNote(Map<String, dynamic> noteContent) async {
     try {
@@ -20,14 +21,16 @@ class NotesProvider with ChangeNotifier {
   }
 
   Future<bool> editExistingNote(
-      String noteReference, Map<String, dynamic> newNoteContent) async {
+      Map<String, dynamic> newNoteContent, String noteId) async {
+    print(newNoteContent);
+    print(noteId);
     try {
       isLoading = true;
       notifyListeners();
       // create note
       FirebaseFirestore.instance
           .collection("notes")
-          .doc(noteReference)
+          .doc(noteId)
           .update(newNoteContent);
       return true;
     } catch (e) {

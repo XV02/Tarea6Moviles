@@ -5,7 +5,7 @@ import 'auth/bloc/auth_bloc.dart';
 import 'firebase_options.dart';
 import 'home/home_page.dart';
 import 'login/login_page.dart';
-import 'package:fire_notes_app/create_form/notes_provider.dart';
+import 'package:fire_notes_app/notes/notes_provider.dart';
 import 'package:provider/provider.dart';
 
 void main() async {

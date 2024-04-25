@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fire_notes_app/auth/bloc/auth_bloc.dart';
 import 'package:fire_notes_app/content/fs_admin_table.dart';
 import 'package:fire_notes_app/content/note_container.dart';
-import 'package:fire_notes_app/create_form/new_note_form.dart';
+import 'package:fire_notes_app/notes/new_note_form.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_ui_firestore/firebase_ui_firestore.dart';
 import 'package:flutter/material.dart';
@@ -49,7 +49,8 @@ class HomePage extends StatelessWidget {
               itemBuilder: (BuildContext context,
                   QueryDocumentSnapshot<Map<String, dynamic>> document) {
                 // document = 1 tweet de la collection
-                return NoteContainer(noteContent: document.data());
+                return NoteContainer(
+                    noteContent: document.data(), noteId: document.id);
               },
             ),
           ),

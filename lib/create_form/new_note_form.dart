@@ -58,7 +58,7 @@ class _NewNoteFormState extends State<NewNoteForm> {
                     // Save the note
                     Map<String, dynamic> note = {
                       "userId": FirebaseAuth.instance.currentUser!.uid,
-                      "color": Colors.green.toString(),
+                      "color": "#${Colors.green.value.toRadixString(16)}",
                       "createdAt": Timestamp.fromDate(DateTime.now()),
                       "type": "normal",
                       "data": {

@@ -20,7 +20,8 @@ class NoteContainer extends StatelessWidget {
           ),
           boxShadow: [
             BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
+              color: Color(
+                  int.parse(noteContent["color"].substring(1), radix: 16)),
               spreadRadius: 5,
               blurRadius: 7,
               offset: const Offset(0, 3),

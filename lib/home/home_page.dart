@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fire_notes_app/auth/bloc/auth_bloc.dart';
 import 'package:fire_notes_app/content/fs_admin_table.dart';
-import 'package:fire_notes_app/content/item_public.dart';
 import 'package:fire_notes_app/content/note_container.dart';
 import 'package:fire_notes_app/create_form/new_note_form.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -18,7 +17,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Home"),
+        title: const Text("Home"),
         actions: [
           IconButton(
             onPressed: () {
@@ -28,7 +27,7 @@ class HomePage extends StatelessWidget {
                 ),
               );
             },
-            icon: Icon(Icons.play_arrow),
+            icon: const Icon(Icons.play_arrow),
           ),
         ],
       ),
@@ -38,11 +37,11 @@ class HomePage extends StatelessWidget {
             onPressed: () {
               BlocProvider.of<AuthBloc>(context).add(SignOutEvent());
             },
-            child: Text("Log out"),
+            child: const Text("Log out"),
           ),
           Expanded(
             child: FirestoreListView(
-              padding: EdgeInsets.symmetric(horizontal: 18),
+              padding: const EdgeInsets.symmetric(horizontal: 18),
               pageSize: 15,
               query: FirebaseFirestore.instance.collection("notes").where(
                   "userId",
@@ -64,18 +63,17 @@ class HomePage extends StatelessWidget {
           FloatingActionButton.small(
             heroTag: null,
             tooltip: "New note",
-            child: Icon(Icons.file_copy),
+            child: const Icon(Icons.file_copy),
             onPressed: () {
-              print("New note button");
               _fabKey.currentState?.toggle();
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (ctx) => NewNoteForm()));
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (ctx) => const NewNoteForm()));
             },
           ),
           FloatingActionButton.small(
             heroTag: null,
             tooltip: "New folder",
-            child: Icon(Icons.folder),
+            child: const Icon(Icons.folder),
             onPressed: () {
               _fabKey.currentState?.toggle();
             },

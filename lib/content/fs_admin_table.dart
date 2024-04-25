@@ -11,11 +11,11 @@ class FsAdminTable extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Admin table"),
+        title: const Text("Admin table"),
       ),
       body: FirestoreDataTable(
         query: tweetCollection,
-        columnLabels: {
+        columnLabels: const {
           "description": Text("Descripcion"),
           "osystem": Text("OS"),
           "picture": Text("Imagen"),

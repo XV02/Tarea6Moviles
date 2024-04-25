@@ -26,10 +26,6 @@ class UserAuthRepository {
     final googleUser = await _googleSignIn.signIn();
     final googleAuth = await googleUser!.authentication;
 
-    print(">> User email: ${googleUser.email}");
-    print(">> User email: ${googleUser.displayName}");
-    print(">> User email: ${googleUser.photoUrl}");
-
     // get credenciales de usuario autenticado con Google
     final AuthCredential credential = GoogleAuthProvider.credential(
       accessToken: googleAuth.accessToken,
@@ -38,7 +34,5 @@ class UserAuthRepository {
 
     // firebase sign in con credenciales de Google
     await _auth.signInWithCredential(credential);
-
-    print(FirebaseAuth.instance.currentUser!.uid);
   }
 }

@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../auth/bloc/auth_bloc.dart';
 
 class LoginPage extends StatefulWidget {
-  LoginPage({Key? key}) : super(key: key);
+  const LoginPage({super.key});
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -18,8 +18,8 @@ class _LoginPageState extends State<LoginPage> {
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: ListView(
           children: [
-            Padding(
-              padding: const EdgeInsets.all(24.0),
+            const Padding(
+              padding: EdgeInsets.all(24.0),
               child: Text(
                 "Sign In",
                 style: TextStyle(
@@ -32,23 +32,23 @@ class _LoginPageState extends State<LoginPage> {
               "assets/icons/app_icon.png",
               height: 120,
             ),
-            SizedBox(height: 200),
+            const SizedBox(height: 200),
             MaterialButton(
-              child: Text("Iniciar como anonimo"),
               color: Colors.grey,
               onPressed: () {
                 BlocProvider.of<AuthBloc>(context).add(AnonymousAuthEvent());
               },
+              child: const Text("Iniciar como anonimo"),
             ),
-            Text(
+            const Text(
               "Utiliza un red social",
             ),
             MaterialButton(
-              child: Text("Iniciar con Google"),
               color: Colors.green,
               onPressed: () {
                 BlocProvider.of<AuthBloc>(context).add(GoogleAuthEvent());
               },
+              child: const Text("Iniciar con Google"),
             ),
           ],
         ),

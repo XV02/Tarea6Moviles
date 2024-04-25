@@ -8,7 +8,7 @@ part 'auth_event.dart';
 part 'auth_state.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
-  UserAuthRepository _autRepo = UserAuthRepository();
+  final UserAuthRepository _autRepo = UserAuthRepository();
   AuthBloc() : super(AuthInitial()) {
     on<VerifyAuthEvent>(_authVerfication);
     on<AnonymousAuthEvent>(_authAnonymous);
@@ -39,7 +39,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       await _autRepo.signInWithGoogle();
       emit(AuthSuccessState());
     } catch (e) {
-      print("Error al autenticar: $e");
       emit(AuthErrorState());
     }
   }
